@@ -62,9 +62,16 @@ class GameLogic:
         
         
 
-        if counter[1] and counter[2] and counter[3] and counter[4] and counter[5] and counter[6] ==1:   
-                score = 1500
+        # if counter[1] and counter[2] and counter[3] and counter[4] and counter[5] and counter[6] ==1:   
+        #         score = 1500
 
+        
+        ls=list(dice_roll)
+        ls.sort()
+        print(ls)
+        if ls == [1,2,3,4,5,6]:
+            
+             score = 1500
 
         return score
     
@@ -90,5 +97,5 @@ class GameLogic:
         return  tuple(values)
     
 
-# dice_roll=(5,5)
-# print(GameLogic.calculate_score(dice_roll))
+dice_roll=(5,)
+print(GameLogic.calculate_score(dice_roll))
