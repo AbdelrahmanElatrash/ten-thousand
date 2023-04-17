@@ -12,30 +12,40 @@ class GameLogic:
     def calculate_score(dice_roll):
         counter=Counter(dice_roll)
         score = 0
+
+        '''
+        Args:
+            param1 : tuple of intger
+        Returns:
+            retun a number debend ten thousends game dice_roll as a score
+    
+        Raises:
+          empty tuple
+        '''
         
         for num in set(dice_roll):
             times=counter[num]
             if times >=3 :
-                # if times == 3:
-                    if num == 1 :
-                        score +=1000
-                    if num == 2 :
-                        score +=200
-                    if num == 3 :
-                        score +=300
-                    if num == 4 :
-                        score +=400
-                    if num == 5 :
-                        score +=500
-                    if num == 6 :
-                        score +=600
 
-                    if times ==4:
-                        score *=2
-                    if times ==5:
-                        score *=4   
-                    if times ==6:
-                        score *=8 
+                if num == 1 :
+                    score +=1000
+                if num == 2 :
+                    score +=200
+                if num == 3 :
+                    score +=300
+                if num == 4 :
+                    score +=400
+                if num == 5 :
+                    score +=500
+                if num == 6 :
+                    score +=600
+
+                if times ==4:
+                    score *=2
+                if times ==5:
+                    score *=4   
+                if times ==6:
+                   score *=8 
 
         if counter[5] <3:
              score +=50 * counter[5]
@@ -68,11 +78,23 @@ class GameLogic:
 # The output from calculate_score is an integer representing the roll’s score according to rules of game.
 
     def roll_dice(num):
-        values=[]
-        for x in range(num):
-            x = randint(1, 6)
-            values.append(x)
-        
+
+        '''
+        Args:
+            param1 : number   from 1 = 6
+        Returns:
+            retun a number debend ten thousends game dice_roll as a score
+    
+        Raises:
+          negative number and hieghr than 6
+        '''
+        if num >=1 and num <=6 :
+            
+            values=[]
+            for x in range(num):
+                x = randint(1, 6)
+                values.append(x)
+            
         return  tuple(values)
     
 
