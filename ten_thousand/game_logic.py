@@ -68,7 +68,6 @@ class GameLogic:
         
         ls=list(dice_roll)
         ls.sort()
-        print(ls)
         if ls == [1,2,3,4,5,6]:
             
              score = 1500
