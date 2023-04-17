@@ -55,18 +55,12 @@ class GameLogic:
         
 
 
-        # l=dice_roll.sort()
-        # Three Pairs
-        # counts = Counter(dice_roll)
-
+        
         if all(count == 2 for count in counter.values()) and len(counter) == 3:
                     score =1500
         
         
-        # Straight 1- 6
-        # l=list(dice_roll)
-        # if l.sort() == [1,2,3,4,5,6]:
-        #     score = 1500
+        
 
         if counter[1] and counter[2] and counter[3] and counter[4] and counter[5] and counter[6] ==1:   
                 score = 1500
@@ -74,9 +68,7 @@ class GameLogic:
 
         return score
     
-    # The input to calculate_score is a tuple of integers that represent a dice roll.
-# The output from calculate_score is an integer representing the roll’s score according to rules of game.
-
+    
     def roll_dice(num):
 
         '''
