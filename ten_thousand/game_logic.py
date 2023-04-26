@@ -95,6 +95,3 @@ class GameLogic:
             
         return  tuple(values)
     
-
-dice_roll=(5,)
-print(GameLogic.calculate_score(dice_roll))
