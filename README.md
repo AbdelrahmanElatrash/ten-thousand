@@ -13,5 +13,9 @@ in the main directory run
 
 
 ## test
-run the following coman in test file
+run the following coman in tests file
  `pytest`
+
+ or descripe test version 
+    `pytest version_1`  
+    `pytest version_2` 

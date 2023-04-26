@@ -1,11 +1,16 @@
 
-import sys
-sys.path.insert(1, r'/home/a/lutc/lab/ten-thousand/ten_thousand')
-import game_logic
-# from ten_thousand.game_logic import GameLogic 
-'/home/a/lutc/lab/ten-thousand/ten_thousand'
-"ten_thousand."
-GameLogic=game_logic.GameLogic
+# import sys
+# import os
+# path1=  os.path.abspath(os.getcwd())+'/ten_thousand'
+# sys.path.insert(1,os.getcwd()+'/ten_thousand')
+
+try:
+    from game_logic import GameLogic 
+except:
+    from ten_thousand.game_logic import GameLogic
+
+
+
 
 
 roll_dice=GameLogic.roll_dice   # roll dice function to generate random number
