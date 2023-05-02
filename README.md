@@ -19,3 +19,4 @@ run the following coman in tests file
  or descripe test version 
     `pytest version_1`  
     `pytest version_2` 
+    `pytest version_3`

@@ -95,3 +95,32 @@ class GameLogic:
             
         return  tuple(values)
     
+    def validate_keepers(roll, keepers):
+        for i in set(keepers):
+            if keepers.count(i)<= roll.count(i):
+                a=True
+            else:
+                a=False
+                return a
+        return a
+    
+
+    def get_scorers(test_input):
+
+        test_input_score=GameLogic.calculate_score(test_input)
+        scorers=[]
+        if test_input_score==0:
+            return tuple()
+        
+    
+        for i , val in enumerate(test_input):
+            sub_roll=test_input[:i] + test_input[i+1:]
+            sub_score=GameLogic.calculate_score(sub_roll)
+
+            if sub_score !=test_input_score:
+                scorers.append(val)
+            
+        return tuple(scorers)
+
+
+
