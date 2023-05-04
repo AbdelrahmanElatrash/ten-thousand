@@ -15,7 +15,7 @@ except:
 
 roll_dice=GameLogic.roll_dice   # roll dice function to generate random number
 
-def play(roller=GameLogic.roll_dice, num=10):
+def play(roller=GameLogic.roll_dice, num=20):
 
     """
     do:  this function start the game and do game stepse
