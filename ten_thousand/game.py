@@ -100,27 +100,36 @@ def roll_and_calculate(round_num):
         print(printed_roll_value)
 
         if GameLogic.calculate_score(roll)==0:
+            zlich()
             return 0
 
+        
+        keeps_dice=choise_point(roll)
+        keeps_dice=GameLogic.get_scorers(keeps_dice)
+        if  len(keeps_dice)==0:
+            return -1
+        elif len(keeps_dice)==6:
+            unbanked_point +=GameLogic.calculate_score(keeps_dice)
         else:
-            keeps_dice=choise_point(roll)
-            
-            if not(len(keeps_dice)==0):
-                unbanked_point +=GameLogic.calculate_score(keeps_dice)
-                avilable_dice -=len(keeps_dice)
-            else:
-                return -1
-        print(f'You have {unbanked_point} unbanked points and {avilable_dice} dice remaining')
+            unbanked_point +=GameLogic.calculate_score(keeps_dice)
+            avilable_dice -=len(keeps_dice)
+        
+
+  
+        print(f'You have {unbanked_point} unbanked points and {avilable_dice} dice remaining')    
         print('(r)oll again, (b)ank your points or (q)uit:')
         roll_bank_or_quite=input('> ')
         if roll_bank_or_quite.lower()== 'q':
             return -1
         elif roll_bank_or_quite== 'b':
             return unbanked_point
-        else:
-            print(printed_roll_value)
+        elif avilable_dice==0:
+            return 0
 
-
+def zlich():
+    print('****************************************')
+    print('**        Zilch!!! Round over         **')
+    print('****************************************')
 
 def choise_point(roll):
 
@@ -133,15 +142,23 @@ def choise_point(roll):
     """
     print('Enter dice to keep, or (q)uit:')
     keep_or_quite=input('> ')
+    
     if keep_or_quite.lower()=='q':
         return tuple()
-    else:
-        keeps_dice=convert_keep_to_int(keep_or_quite)
-        for n in keeps_dice:
-            if not(n in roll):
-                return "you enter one or more numbers does not exist"
-        
+    
+    keeps_dice=convert_keep_to_int(keep_or_quite)
+    valid=GameLogic.validate_keepers(roll,keeps_dice)
+
+    if valid:
         return keeps_dice 
+    else:
+        print('Cheater!!! Or possibly made a typo...')
+        format=format_roll(roll)
+        print(format)
+        return choise_point(roll)
+
+            
+        
 
 
 
@@ -158,6 +175,7 @@ def format_roll(roll): # for test
     formated_roll=" ".join(values_as_str)
     return f'*** {formated_roll} ***'
 
+    
 
 def convert_keep_to_int(keep_or_quite):
     """
