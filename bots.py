@@ -13,7 +13,7 @@ game=play
 class BaseBot(ABC):
     """Base class for Ten Thousand Game bots"""
 
-    def __init__(self, print_all=True):
+    def __init__(self, print_all=False):
         self.last_print = ""
         self.last_roll = []
         self.print_all = print_all
@@ -163,5 +163,5 @@ class YourBot(BaseBot):
 
 if __name__ == "__main__":
     num_games = 100
-    # NervousNellie.play(num_games)
+    NervousNellie.play(num_games)
     YourBot.play(num_games)
